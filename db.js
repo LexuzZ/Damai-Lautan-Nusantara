@@ -6,9 +6,9 @@ mongoose.connect(mongoURL, { useUnifiedTopology: true, useNewUrlParser: true });
 
 var connection = mongoose.connection;
 connection.on("error", () => {
-  console.log("mongodb cnnection fail");
+  console.log("mongodb connection fail");
 });
 connection.on("connected", () => {
-  console.log("mongodb cnnection success");
+  console.log("mongodb connection success");
 });
 module.exports = mongoose;
