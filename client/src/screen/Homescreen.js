@@ -23,8 +23,8 @@ const Homescreen = () => {
   }, []);
 
   return (
-    <div>
-      <div className="row">
+    <div className="container">
+      <div className="row justify-content-center mt-5">
         {loading ? (
           <h1>Loading...</h1>
         ) : error ? (
@@ -32,7 +32,7 @@ const Homescreen = () => {
         ) : (
           tickets.map((ticket) => {
             return (
-              <div className="col-md-9">
+              <div className="col-md-9 mt-2">
                 <Ticket ticket={ticket} />
               </div>
             );
