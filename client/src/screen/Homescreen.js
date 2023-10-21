@@ -1,25 +1,46 @@
-import react, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Ticket from "../components/Ticket";
 
-function Homescreen() {
-  const [data, setData] = useState([]);
+const Homescreen = () => {
+  const [tickets, settickets] = useState([]);
+  const [loading, setloading] = useState();
+  const [error, seterror] = useState();
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data: response } = await axios.get("/api/tickets/");
-        setData(response);
+        setloading(true);
+        const data = (await axios.get("/api/tickets/")).data;
+        settickets(data);
+        setloading(false);
       } catch (error) {
-        console.error(error.message);
+        seterror(true);
+        setloading(false);
       }
     };
+
     fetchData();
   }, []);
+
   return (
     <div>
-      <h1>Home Screen</h1>
-      <h1>{data.length}</h1>
+      <div className="row">
+        {loading ? (
+          <h1>Loading...</h1>
+        ) : error ? (
+          <h1>Error</h1>
+        ) : (
+          tickets.map((ticket) => {
+            return (
+              <div className="col-md-9">
+                <Ticket ticket={ticket} />
+              </div>
+            );
+          })
+        )}
+      </div>
     </div>
   );
-}
+};
 
 export default Homescreen;

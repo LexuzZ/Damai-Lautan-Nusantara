@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { Component } from "react";
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homescreen from "./screen/Homescreen";
@@ -10,7 +11,7 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route path="/home" exact element={<Homescreen />} />
+          <Route path="/" exact element={<Homescreen />} />
         </Routes>
       </BrowserRouter>
     </div>
