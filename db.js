@@ -1,14 +1,23 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+// const bodyParser = require("body-parser");
+// const app = require("express");
 
-var mongoURL =
-  "mongodb+srv://haerultaka255:IpnLEsyvVR7qqWRk@newcluster.f1rc51m.mongodb.net/";
-mongoose.connect(mongoURL, { useUnifiedTopology: true, useNewUrlParser: true });
+// const connect = () => {
+//   return mongoose
+//     .connect(
+//       "mongodb+srv://haerultaka255:IpnLEsyvVR7qqWRk@newcluster.f1rc51m.mongodb.net/mern-ticketing",
+//       {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true,
+//       }
+//     )
+//     .then(() => console.log("db connected"))
+//     .catch((err) => console.log(err));
+// };
 
-var connection = mongoose.connection;
-connection.on("error", () => {
-  console.log("mongodb connection fail");
-});
-connection.on("connected", () => {
-  console.log("mongodb connection success");
-});
-module.exports = mongoose;
+// connect();
+// module.exports = mongoose
+
+module.exports = {
+  url: "mongodb+srv://haerultaka255:IpnLEsyvVR7qqWRk@newcluster.f1rc51m.mongodb.net/mern-ticketing",
+};
