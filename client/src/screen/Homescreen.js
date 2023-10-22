@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Ticket from "../components/Ticket";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Ticket from '../components/Ticket';
 
-const Homescreen = () => {
+function Homescreen() {
   const [tickets, settickets] = useState([]);
   const [loading, setloading] = useState();
   const [error, seterror] = useState();
@@ -10,7 +10,7 @@ const Homescreen = () => {
     const fetchData = async () => {
       try {
         setloading(true);
-        const data = (await axios.get("/api/tickets/")).data;
+        const { data } = await axios.get('/api/tickets/');
         settickets(data);
         setloading(false);
       } catch (error) {
@@ -30,17 +30,15 @@ const Homescreen = () => {
         ) : error ? (
           <h1>Error</h1>
         ) : (
-          tickets.map((ticket) => {
-            return (
-              <div className="col-md-9 mt-2">
-                <Ticket ticket={ticket} />
-              </div>
-            );
-          })
+          tickets.map((ticket) => (
+            <div className="col-md-9 mt-2">
+              <Ticket ticket={ticket} />
+            </div>
+          ))
         )}
       </div>
     </div>
   );
-};
+}
 
 export default Homescreen;

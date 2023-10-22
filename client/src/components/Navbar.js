@@ -1,14 +1,12 @@
-import React from "react";
-import dln from "./dln.png";
+import React from 'react';
+import dln from './public/dln.png';
 
 function Navbar() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg ">
         <img src={dln} alt="react logo" width="50" />
-        <a className="navbar-brand  p-1" href="#">
-          PT. DAMAI LAUTAN NUSANTARA
-        </a>
+        <a className="navbar-brand  p-1">PT. DAMAI LAUTAN NUSANTARA</a>
         <a className="navbar-brand text-info">CONNECTING INDONESIA</a>
         <button
           className="navbar-toggler"
@@ -19,7 +17,7 @@ function Navbar() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ">
